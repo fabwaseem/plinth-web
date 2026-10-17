@@ -1,15 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { StatusScreen } from "@/components/status-screen";
+
+export const metadata: Metadata = {
+	title: "Page not found",
+	description: "That page is not part of the Plinth site.",
+	keywords: ["Plinth", "page not found"],
+	robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
 	return (
-		<main className="px-6 pt-40 pb-28">
-			<div className="mx-auto max-w-xl">
-				<p className="text-[11px] font-semibold tracking-[0.16em] text-muted-foreground uppercase">404</p>
-				<h1 className="mt-4 text-6xl font-semibold tracking-tight">That page is not here.</h1>
-				<Link href="/" className="mt-8 inline-block text-sm underline underline-offset-4">
-					Back to Plinth
-				</Link>
-			</div>
-		</main>
+		<StatusScreen code="404" title="That page is not here." body="The address does not match a page on the Plinth site.">
+			<Link href="/" className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground">
+				Go to the Plinth homepage
+			</Link>
+		</StatusScreen>
 	);
 }

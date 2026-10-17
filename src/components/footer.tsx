@@ -8,21 +8,21 @@ const links = [
 	{ href: "/privacy", label: "Privacy" },
 	{ href: "/terms", label: "Terms" },
 	{ href: "/license", label: "License" },
-	{ href: site.github, label: "GitHub" },
+	{ href: site.github, label: "Plinth on GitHub" },
 ];
 
 export async function Footer() {
 	const version = await getLatestVersion();
 
 	return (
-		<footer className="border-t border-border bg-background px-6 py-12">
+		<footer className="border-t border-border bg-background px-4 py-12 sm:px-6">
 			<div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
 				<div>
 					<div className="flex items-center gap-3">
 						<Logo size={36} />
 						<p className="text-2xl font-semibold tracking-tight">Plinth</p>
 					</div>
-					<p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">
+					<p className="mt-3 max-w-sm text-sm leading-6 text-pretty text-muted-foreground">
 						A desktop downloader by {site.author}. Version {version}. Files stay on your computer.
 					</p>
 				</div>
@@ -30,11 +30,11 @@ export async function Footer() {
 					{links.map((link) => (
 						<li key={link.href}>
 							{link.href.startsWith("http") ? (
-								<a href={link.href} className="text-muted-foreground hover:text-foreground">
+								<a href={link.href} className="inline-flex min-h-11 items-center text-muted-foreground hover:text-foreground">
 									{link.label}
 								</a>
 							) : (
-								<Link href={link.href} className="text-muted-foreground hover:text-foreground">
+								<Link href={link.href} className="inline-flex min-h-11 items-center text-muted-foreground hover:text-foreground">
 									{link.label}
 								</Link>
 							)}

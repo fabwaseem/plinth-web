@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { CopyAddress } from "@/components/copy-address";
 import { Legal } from "@/components/legal";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
 	title: "Support",
 	description: "Report a problem with Plinth, or support the project with USDT.",
-};
+	path: "/support",
+	keywords: ["Plinth support", "report a bug", "USDT donation", "GitHub issues"],
+});
 
 export default function SupportPage() {
 	return (
@@ -14,15 +17,12 @@ export default function SupportPage() {
 			eyebrow="Support"
 			title="Tell us what broke, or send a thank-you."
 			lede="Bugs belong on GitHub. Support, if you want to send any, is a single USDT address."
+			path="/support"
 		>
 			<section>
 				<h2>Issues</h2>
 				<p>
-					Open a report at{" "}
-					<a className="underline underline-offset-4" href={site.issues}>
-						{site.issues}
-					</a>
-					. Include the site, the format you picked, and what the queue said. Leave out account passwords.
+					<a href={site.issues}>Open a GitHub issue</a> and include the site, the format you picked, and what the queue said. Leave out account passwords.
 				</p>
 			</section>
 			<section>

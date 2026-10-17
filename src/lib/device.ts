@@ -12,10 +12,10 @@ function subscribe() {
 
 function readOs(): Os | null {
 	const ua = navigator.userAgent;
-	const platform = navigator.platform ?? "";
-	if (/Win/i.test(platform) || /Windows/i.test(ua)) return "windows";
-	if (/Mac/i.test(platform) || /Macintosh/i.test(ua)) return "mac";
-	if (/Linux|X11/i.test(platform) || /Linux/i.test(ua)) return "linux";
+	if (/Windows/i.test(ua)) return "windows";
+	if (/Android|iPhone|iPad|iPod/i.test(ua)) return null;
+	if (/Macintosh|Mac OS X/i.test(ua)) return "mac";
+	if (/Linux/i.test(ua)) return "linux";
 	return null;
 }
 
