@@ -10,6 +10,12 @@ export const site = {
 	usdt: "0x90008a64e57438ad8ae3c8bee9cfeb70b8eee74d",
 } as const
 
+export const packages = {
+	winget: "https://winget.run/pkg/WaseemAnjum/Plinth",
+	scoop: "https://github.com/fabwaseem/scoop-bucket",
+	homebrew: "https://github.com/fabwaseem/homebrew-plinth",
+} as const
+
 export const downloads = {
 	windowsSetup: "https://github.com/fabwaseem/plinth/releases/latest/download/Plinth-win-x64-Setup.exe",
 	windowsPortable: "https://github.com/fabwaseem/plinth/releases/latest/download/Plinth-win-x64-Portable.exe",

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Legal } from "@/components/legal";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
 	title: "Privacy",
 	description: "What Plinth keeps on your computer, and what the website does not collect.",
-};
+	path: "/privacy",
+	keywords: ["Plinth privacy", "local downloads", "desktop app privacy", "no account"],
+});
 
 export default function PrivacyPage() {
 	return (
@@ -12,6 +15,7 @@ export default function PrivacyPage() {
 			eyebrow="Privacy"
 			title="Your files stay where you saved them."
 			lede="Plinth is a desktop app. This website is a static page. Neither one asks you to make an account."
+			path="/privacy"
 		>
 			<section>
 				<h2>The app</h2>
@@ -29,15 +33,11 @@ export default function PrivacyPage() {
 			</section>
 			<section>
 				<h2>Updates</h2>
-				<p>
-					The app checks GitHub for a newer release. That request goes to GitHub, the same place the installer came from.
-				</p>
+				<p>The app checks GitHub for a newer release. That request goes to GitHub, the same place the installer came from.</p>
 			</section>
 			<section>
 				<h2>This website</h2>
-				<p>
-					plinth.fabwaseem.com does not run accounts, comments, or a checkout. Your browser may still record the visit in its own history. Download links go to GitHub Releases.
-				</p>
+				<p>plinth.fabwaseem.com does not run accounts, comments, or a checkout. Your browser may still record the visit in its own history. Download links go to GitHub Releases.</p>
 			</section>
 		</Legal>
 	);
