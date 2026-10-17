@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	color-scheme: light;
+	--background: hsl(40, 18%, 96%);
+	--foreground: hsl(30, 10%, 12%);
+	--card: hsl(40, 28%, 99%);
+	--card-foreground: hsl(30, 10%, 12%);
+	--popover: hsl(40, 33%, 99%);
+	--popover-foreground: hsl(30, 10%, 12%);
+	--primary: hsl(28, 12%, 16%);
+	--primary-foreground: hsl(40, 24%, 97%);
+	--secondary: hsl(36, 14%, 93%);
+	--secondary-foreground: hsl(30, 10%, 14%);
+	--muted: hsl(36, 12%, 93%);
+	--muted-foreground: hsl(30, 6%, 36%);
+	--accent: hsl(36, 14%, 91%);
+	--accent-foreground: hsl(30, 10%, 14%);
+	--destructive: hsl(4, 62%, 42%);
+	--success: hsl(152, 36%, 28%);
+	--warning: hsl(32, 64%, 34%);
+	--border: hsl(34, 12%, 84%);
+	--border-strong: hsl(32, 10%, 74%);
+	--ring: hsl(28, 12%, 16%);
+	--field: hsl(40 30% 99% / 0.94);
+	--panel-glow: 0 1px 2px hsl(30 10% 12% / 0.04), 0 16px 36px -24px hsl(30 10% 12% / 0.16);
+	--choice-selected: hsl(36 16% 92%);
+	--choice-selected-shadow: inset 0 0 0 1.5px var(--primary);
+	--tabs-rail: hsl(40 40% 99% / 0.92);
+	--tabs-active: hsl(0 0% 100%);
+	--radius: 0.75rem;
+}
+
+.dark {
+	color-scheme: dark;
+	--background: hsl(30, 6%, 7%);
+	--foreground: hsl(40, 16%, 94%);
+	--card: hsl(30, 5%, 10%);
+	--card-foreground: hsl(40, 16%, 94%);
+	--popover: hsl(30, 5%, 12%);
+	--popover-foreground: hsl(40, 16%, 94%);
+	--primary: hsl(36, 18%, 90%);
+	--primary-foreground: hsl(30, 8%, 10%);
+	--secondary: hsl(30, 5%, 14%);
+	--secondary-foreground: hsl(40, 14%, 92%);
+	--muted: hsl(30, 5%, 14%);
+	--muted-foreground: hsl(34, 8%, 70%);
+	--accent: hsl(30, 5%, 16%);
+	--accent-foreground: hsl(40, 16%, 94%);
+	--destructive: hsl(4, 72%, 62%);
+	--success: hsl(152, 42%, 48%);
+	--warning: hsl(36, 72%, 58%);
+	--border: hsl(36 8% 100% / 0.08);
+	--border-strong: hsl(36 8% 100% / 0.14);
+	--ring: hsl(36, 18%, 90%);
+	--field: hsl(30 6% 9% / 0.92);
+	--panel-glow: 0 1px 2px hsl(0 0% 0% / 0.28), 0 18px 40px -24px hsl(0 0% 0% / 0.55);
+	--choice-selected: hsl(30 5% 16%);
+	--choice-selected-shadow: inset 0 0 0 1.5px var(--primary);
+	--tabs-rail: hsl(30 5% 13%);
+	--tabs-active: hsl(36 8% 24%);
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-success: var(--success);
+	--color-warning: var(--warning);
+	--color-border: var(--border);
+	--color-border-strong: var(--border-strong);
+	--color-ring: var(--ring);
+	--color-field: var(--field);
+	--font-sans: var(--font-poppins), sans-serif;
+	--font-mono: var(--font-jetbrains), monospace;
+	--radius-lg: var(--radius);
+}
+
+html {
+	scroll-behavior: smooth;
+	background: var(--background);
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-poppins), sans-serif;
+}
+
+::selection {
+	background: color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.marquee {
+	animation: marquee 48s linear infinite;
+}
+
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	.marquee {
+		animation: none;
+	}
+}
