@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { CopyAddress } from "@/components/copy-address";
 import { Legal } from "@/components/legal";
+import { MacInstallHelp } from "@/components/mac-install-help";
 import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
 	title: "Support",
-	description: "Report a problem with Plinth, or support the project with USDT.",
+	description: "Open Plinth on macOS, report a problem, or support the project with USDT.",
 	path: "/support",
-	keywords: ["Plinth support", "report a bug", "USDT donation", "GitHub issues"],
+	keywords: ["Plinth support", "macOS install", "Apple could not verify", "report a bug", "USDT donation", "GitHub issues"],
 });
 
 export default function SupportPage() {
@@ -25,6 +26,7 @@ export default function SupportPage() {
 					<a href={site.issues}>Open a GitHub issue</a> and include the site, the format you picked, and what the queue said. Leave out account passwords.
 				</p>
 			</section>
+			<MacInstallHelp variant="section" />
 			<section>
 				<h2>USDT, ERC-20</h2>
 				<p>This is the only donation address. It is on Ethereum.</p>

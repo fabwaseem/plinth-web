@@ -27,6 +27,7 @@ import {
 } from "@phosphor-icons/react/ssr";
 import { DeviceScope } from "@/components/device-scope";
 import { DownloadButton } from "@/components/download-button";
+import { MacInstallHelp } from "@/components/mac-install-help";
 import { downloads, faqs, features, packages, site, steps } from "@/lib/site";
 
 const sources: { name: string; icon: Icon }[] = [
@@ -216,25 +217,28 @@ export function Home({ version }: { version: string }) {
 						These files are the public GitHub release. Windows SmartScreen and macOS Gatekeeper will ask an extra question because the builds are not yet signed with a paid certificate.
 					</p>
 					<DeviceScope>
-						<div className="mt-10 grid gap-4 lg:grid-cols-3">
+						<div className="mt-10 grid items-start gap-4 lg:grid-cols-3">
 							{platforms.map((platform) => {
 								const Icon = platform.icon;
 								return (
-									<article key={platform.id} data-platform={platform.id} className="platform-card relative flex flex-col rounded-[1.4rem] border border-border bg-card p-6">
-										<span className="device-badge absolute top-5 right-5 rounded-full bg-primary px-3 py-1 text-xs font-semibold tracking-wide text-primary-foreground uppercase">
-											This device
-										</span>
-										<Icon size={72} weight="duotone" aria-hidden />
-										<h3 className="mt-6 text-2xl font-semibold tracking-tight">{platform.name}</h3>
-										<p className="mt-2 min-h-12 text-sm leading-6 text-pretty text-muted-foreground">{platform.note}</p>
-										<div className="mt-6 flex flex-wrap gap-2">
-											{platform.links.map((link) => (
-												<a key={link.href} href={link.href} data-link={link.id} className="download-link" aria-label={`Download Plinth for ${platform.name}, ${link.label}`}>
-													{link.label}
-												</a>
-											))}
-										</div>
-									</article>
+									<div key={platform.id} className="flex min-w-0 flex-col gap-3">
+										<article data-platform={platform.id} className="platform-card relative flex min-w-0 flex-col rounded-[1.4rem] border border-border bg-card p-6">
+											<span className="device-badge absolute top-5 right-5 rounded-full bg-primary px-3 py-1 text-xs font-semibold tracking-wide text-primary-foreground uppercase">
+												This device
+											</span>
+											<Icon size={72} weight="duotone" aria-hidden />
+											<h3 className="mt-6 text-2xl font-semibold tracking-tight">{platform.name}</h3>
+											<p className="mt-2 min-h-12 text-sm leading-6 text-pretty text-muted-foreground">{platform.note}</p>
+											<div className="mt-6 flex flex-wrap gap-2">
+												{platform.links.map((link) => (
+													<a key={link.href} href={link.href} data-link={link.id} className="download-link" aria-label={`Download Plinth for ${platform.name}, ${link.label}`}>
+														{link.label}
+													</a>
+												))}
+											</div>
+										</article>
+										{platform.id === "mac" ? <MacInstallHelp /> : null}
+									</div>
 								);
 							})}
 						</div>
