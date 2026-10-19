@@ -1,0 +1,2 @@
+[start]
+cmd = "exec node scripts/standalone-server.cjs"
