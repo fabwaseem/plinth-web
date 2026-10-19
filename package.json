@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "exec node scripts/standalone-server.cjs",
     "lint": "node --require ./scripts/eslint-typescript.cjs ./node_modules/eslint/bin/eslint.js --max-warnings 0"
   },
   "dependencies": {
